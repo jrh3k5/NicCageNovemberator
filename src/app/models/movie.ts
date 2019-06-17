@@ -1,3 +1,4 @@
-export class Movie {
-  constructor(public title: string) {}
+export interface Movie {
+  id: number;
+  title: string;
 }

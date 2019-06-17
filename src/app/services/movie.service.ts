@@ -9,7 +9,6 @@ import { MovieCreditsResponse } from '../models/movieCreditsResponse';
   providedIn: 'root'
 })
 export class MovieService {
-
   constructor(private httpClient: HttpClient) { }
 
   getMovies(apiKey: string): Observable<Movie[]> {
@@ -18,7 +17,13 @@ export class MovieService {
     const options = {
       params: params
     };
+
+    const ignoreList = [
+      279144, // The Death of "Superman Lives": What Happened
+      144708, // John Travolta: The Inside Story
+    ];
+
     return this.httpClient.get<MovieCreditsResponse>('https://api.themoviedb.org/3/person/2963/movie_credits', options)
-                          .pipe(map(results => results.cast.map(c => new Movie(c.title))));
+                          .pipe(map(results => results.cast.filter(c => !ignoreList.some(il => il === c.id))));
   }
 }
