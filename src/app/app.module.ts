@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ApiKeyInputComponent } from './api-key-input/api-key-input.component';
+import { ApiKeyInputComponent } from './components/api-key-input/api-key-input.component';
 
 @NgModule({
   declarations: [
