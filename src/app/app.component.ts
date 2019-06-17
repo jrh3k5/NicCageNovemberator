@@ -18,9 +18,9 @@ export class AppComponent {
   }
 
   getMovies() {
-    if(!this.apiKey) {
+    if (!this.apiKey) {
       // TODO: make this show up on the page
-      console.error("No API key supplied!");
+      console.error('No API key supplied!');
       return;
     }
 
