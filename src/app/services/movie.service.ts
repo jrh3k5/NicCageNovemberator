@@ -14,13 +14,14 @@ export class MovieService {
   getMovies(apiKey: string): Observable<Movie[]> {
     const params = new HttpParams().set('language', 'en-US')
                                    .set('api_key', apiKey);
-    const options = {
-      params: params
-    };
+    const options = { params };
 
     const ignoreList = [
       279144, // The Death of "Superman Lives": What Happened
       144708, // John Travolta: The Inside Story
+      75337, // Too Tough to Die: A Tribute to Johnny Ramone,
+      568527, // Sitges - 51st Fantastic International Film Festival of Catalonia
+      86843, // "With Great Power: The Stan Lee Story"
     ];
 
     return this.httpClient.get<MovieCreditsResponse>('https://api.themoviedb.org/3/person/2963/movie_credits', options)
