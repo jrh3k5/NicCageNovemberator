@@ -1,3 +1,41 @@
+.root {
+	width: 40%;
+	margin-left: 30%;
+}
+
+.site-title {
+	background-color: #6666CC;
+	color: white;
+
+	font-family: Arial;
+	padding: 2em;
+	text-align: center;
+}
+
+.body-text {
+	padding-top: 20px;
+	text-align: center;
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.movie-list {
+	padding-top: 20px;
+}
+
 table {
-	background-color: #8470ff;
+	width: 100%;
+}
+
+td {
+	border-left-width: 0;
+	border-right-width: 0;
+}
+
+tr.odd {
+	background-color: #EEEEEE;
+}
+
+th {
+	background-color: #EEEEEE;
 }
