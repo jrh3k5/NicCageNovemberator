@@ -14,16 +14,16 @@ export class AppComponent {
   constructor(private movieService: MovieService) { }
 
   onApiKeyEntered(apiKey: string) {
-  	this.apiKey = apiKey;
+    this.apiKey = apiKey;
   }
 
   getMovies() {
-  	if(!this.apiKey) {
-  		// TODO: make this show up on the page
-  		console.error("No API key supplied!");
-  		return;
-  	}
+    if(!this.apiKey) {
+      // TODO: make this show up on the page
+      console.error("No API key supplied!");
+      return;
+    }
 
-  	this.movieService.getMovies(this.apiKey).subscribe((movies: Movie[]) => console.log(movies));
+    this.movieService.getMovies(this.apiKey).subscribe((movies: Movie[]) => console.log(movies));
   }
 }
