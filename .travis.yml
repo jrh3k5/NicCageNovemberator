@@ -6,7 +6,9 @@ branches:
   only:
   - master
 before_script:
-  - npm install -g @angular/cli
+  - npm install -g @angular/cli@8.0.3
+  - npm install -g angular-cli-ghpages@0.5.3
 script:
 - ng lint
 - ng build --prod --base-href https://jrh3k5.github.io/NicCageNovemberator/
+- ngh
