@@ -2,6 +2,8 @@
 <app-api-key-input (entered)="onApiKeyEntered($event)"></app-api-key-input>
 <br />
 <button (click)="getMovies()">Get Movies</button>
+<br />
+See a movie you don't think should be on here? Maybe it's not a proper Nic Cage movie, or it's a documentary? <a href="https://github.com/jrh3k5/NicCageNovemberator/issues">Submit an issue</a>
 
 <table *ngIf="movies.length > 0">
 	<thead>
