@@ -1,16 +1,20 @@
-<div class="root">
-	<div class="site-title">
-		<h1>Nic Cage Novemberator</h1>
-	</div>
-	<div class="body-text">
+<mat-card class="novemberator-card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>Nic Cage Novemberator</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+  	<div>
 		<app-api-key-input (entered)="onApiKeyEntered($event)"></app-api-key-input>
 		<br />
-		<button (click)="getMovies()">Get Movies</button>
+		<button mat-raised-button (click)="getMovies()">Get Movies</button>
 		<br />
 		<br />
 		See a movie you don't think should be on here? Maybe it's not a proper Nic Cage movie, or it's a documentary? <a href="https://github.com/jrh3k5/NicCageNovemberator/issues">Submit an issue</a>
-	</div>
+  	</div>
+  	<br />
 	<div class="movie-list" *ngIf="movies.length > 0">
+		<!-- TODO: use an Angular table -->
 		<table cellspacing="0">
 			<thead>
 				<tr>
@@ -24,4 +28,10 @@
 			</tr>
 		</table>
 	</div>
-</div>
+  </mat-card-content>
+  <mat-card-actions *ngIf="movies.length > 0">
+  	<!-- TODO: put export for Calendar stuff here -->
+<!--     <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button> -->
+  </mat-card-actions>
+</mat-card>
