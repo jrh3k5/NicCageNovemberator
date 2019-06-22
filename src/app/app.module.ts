@@ -10,11 +10,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ApiKeyInputComponent
+    ApiKeyInputComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,26 @@
+.week {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.day {
+  width: 100%;
+  flex: 0 14%;
+}
+
+.dayContent {
+  width: 100px;
+  height: 200px;
+}
+
+.dayDate {
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  border-style: solid;
+  border-color: #CCC;
+  border-width: 0 2px 2px 0;
+  padding: 4px;
+  float: left;
+}

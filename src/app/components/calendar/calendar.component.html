@@ -1,0 +1,10 @@
+<div class="week" *ngFor="let week of weeks">
+	<div class="day" *ngFor="let dayOfWeek of week">
+		<div class="dayContent">
+			<div class="dayDate">
+				{{ dayOfWeek.date | date:'d'}}
+			</div>
+			<img src="http://image.tmdb.org/t/p/w92/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg" />
+		</div>
+	</div>
+</div>
