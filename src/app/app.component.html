@@ -13,22 +13,7 @@
 		See a movie you don't think should be on here? Maybe it's not a proper Nic Cage movie, or it's a documentary? <a href="https://github.com/jrh3k5/NicCageNovemberator/issues">Submit an issue</a>
   	</div>
   	<br />
-  	<app-calendar></app-calendar>
-	<div class="movie-list" *ngIf="movies.length > 0">
-		<!-- TODO: use an Angular table -->
-		<table cellspacing="0">
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>Movie Title</th>
-				</tr>
-			</thead>
-			<tr *ngFor="let movie of movies; index as i; odd as odd" [ngClass]="{ 'odd': odd }">
-				<td>November {{i + 1}}, {{currentYear}}</td>
-				<td>{{movie.title}}</td>
-			</tr>
-		</table>
-	</div>
+  	<app-calendar *ngIf="movies.length > 0" [movies]="movies"></app-calendar>
   </mat-card-content>
   <mat-card-actions *ngIf="movies.length > 0">
   	<!-- TODO: put export for Calendar stuff here -->

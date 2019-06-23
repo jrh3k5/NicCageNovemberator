@@ -6,21 +6,43 @@
 .day {
   width: 100%;
   flex: 0 14%;
+  text-align: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #EEE;
+  padding-top: 1px;
+}
+
+.dayFirst {
+  border-left-width: 0;
+}
+
+.dayLast {
+  border-right-width: 0;
 }
 
 .dayContent {
   width: 100px;
-  height: 200px;
+  text-align: center;
+  padding: 4px;
 }
 
 .dayDate {
   position: relative;
   top: 0;
   left: 0;
-  font-size: 12px;
+  font-size: 10px;
   border-style: solid;
   border-color: #CCC;
   border-width: 0 2px 2px 0;
-  padding: 4px;
-  float: left;
+  padding: 2px;
+  display: inline-block;
+}
+
+.dayNotNovember {
+  color: #DDD;
+}
+
+a {
+  text-decoration: none;
 }
