@@ -1,0 +1,20 @@
+<div class="week" *ngFor="let week of weeks">
+	<div class="day" *ngFor="let dayOfWeek of week; first as isFirst; last as isLast" [ngClass]="{ dayFirst: isFirst, dayLast: isLast, dayNotNovember: dayOfWeek.date.getMonth() !== 10 }">
+		<div>
+			<div class="dayDate">
+				{{ dayOfWeek.date | date:'d'}}
+			</div>
+		</div>
+		<div>
+			<div *ngIf="dayOfWeek.movie" class="dayContent">
+				<a href="https://www.themoviedb.org/movie/{{dayOfWeek.movie.id}}">
+					<img *ngIf="dayOfWeek.movie.poster_path" src="http://image.tmdb.org/t/p/w92{{dayOfWeek.movie.poster_path}}" alt="{{dayOfWeek.movie.original_title}}" title="{{dayOfWeek.movie.original_title}}" />
+					<img *ngIf="!dayOfWeek.movie.poster_path" src="./assets/img/nic-cage-no-poster-art-88x88.png" alt="No poster art found for '{{dayOfWeek.movie.original_title}}'!" title="No poster art found for '{{dayOfWeek.movie.original_title}}'!" />
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="tooltip">
+	'No poster art found' icon sourced from <a href="https://www.uihere.com/free-cliparts/nicolas-cage-face-off-castor-troy-sean-archer-film-actor-6378739">UI Here</a>.
+</div>
