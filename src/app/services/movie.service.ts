@@ -31,7 +31,7 @@ export class MovieService {
 
     return this.httpClient.get<MovieCreditsResponse>('https://api.themoviedb.org/3/person/2963/movie_credits', options)
                           .pipe(map(results => results.cast.filter(c => {
-                            if(bunnyMode) {
+                            if (bunnyMode) {
                               return c.id === this.conAirMovieId;
                             }
 
