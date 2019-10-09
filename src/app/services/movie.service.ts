@@ -9,9 +9,11 @@ import { MovieCreditsResponse } from '../models/movieCreditsResponse';
   providedIn: 'root'
 })
 export class MovieService {
+  readonly conAirMovieId = 1701;
+
   constructor(private httpClient: HttpClient) { }
 
-  getMovies(apiKey: string): Observable<Movie[]> {
+  getMovies(apiKey: string, isBunnyMode: () => boolean, isPopularMode: () => boolean): Observable<Movie[]> {
     const params = new HttpParams().set('language', 'en-US')
                                    .set('api_key', apiKey);
     const options = { params };
@@ -24,8 +26,19 @@ export class MovieService {
       86843, // "With Great Power: The Stan Lee Story"
     ];
 
+    const bunnyMode = isBunnyMode();
+    const popularMode = isPopularMode();
+
     return this.httpClient.get<MovieCreditsResponse>('https://api.themoviedb.org/3/person/2963/movie_credits', options)
-                          .pipe(map(results => results.cast.filter(c => !ignoreList.some(il => il === c.id))))
+                          .pipe(map(results => results.cast.filter(c => {
+                            if (bunnyMode) {
+                              return c.id === this.conAirMovieId;
+                            }
+
+                            return !ignoreList.some(il => il === c.id);
+                          })))
+                          .pipe(map(movies => {
+                            return movies.filter(m => !popularMode || m.popularity > 1.0); }))
                           .pipe(map(movies => {
                             const now = new Date();
                             return movies.filter(m => new Date(m.release_date) <= now);
