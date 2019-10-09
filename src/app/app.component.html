@@ -7,6 +7,18 @@
   	<div>
 		<app-api-key-input (entered)="onApiKeyEntered($event)"></app-api-key-input>
 		<br />
+    <div class="movie-options">
+      <div>
+        <input type="checkbox" id="bunny-mode" [checked]="bunnyMode" (change)="toggleBunnyMode()"><label for="bunny-mode" title="Con-Air for Days">Put the Bunny Back in the Box</label>
+      </div>
+      <div>
+        <input type="checkbox" id="popular-mode" [checked]="popularMode" (change)="popularMode = !popularMode"><label for="popular-mode" title="Only get movies with popularity >= 1.0">There's Only Two Men I Trust</label>
+      </div>
+      <div>
+        <input type="checkbox" id="vampiyah-mode" [checked]="vampiyahMode" (change)="toggleVampiyahMode()"><label for="vampiyah-mode" title="Make sure Vampire's Kiss is on the schedule">I'm a Vampiyah!</label>
+      </div>
+    </div>
+    <br />
 		<button mat-raised-button (click)="getMovies()">Get Movies</button>
 		<br />
 		<br />

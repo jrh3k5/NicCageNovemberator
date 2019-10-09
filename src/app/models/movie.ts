@@ -4,4 +4,5 @@ export interface Movie {
   poster_path: string;
   original_title: string;
   release_date: Date;
+  popularity: number;
 }
