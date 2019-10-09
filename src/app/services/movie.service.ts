@@ -25,6 +25,10 @@ export class MovieService {
     ];
 
     return this.httpClient.get<MovieCreditsResponse>('https://api.themoviedb.org/3/person/2963/movie_credits', options)
-                          .pipe(map(results => results.cast.filter(c => !ignoreList.some(il => il === c.id))));
+                          .pipe(map(results => results.cast.filter(c => !ignoreList.some(il => il === c.id))))
+                          .pipe(map(movies => {
+                            const now = new Date();
+                            return movies.filter(m => new Date(m.release_date) <= now);
+                          }));
   }
 }
