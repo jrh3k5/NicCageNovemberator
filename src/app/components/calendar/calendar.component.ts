@@ -43,7 +43,7 @@ export class CalendarComponent implements OnChanges {
 
     // If the last week is not a full week, fill it with days in December
     if (currentWeek.length < 7 && currentWeek.length !== 0) {
-      let remainderCount = 0;
+      let remainderCount = 1;
       while (currentWeek.length < 7) {
         currentWeek.push(new MovieCalendarItem(new Date(currentYear, 11, remainderCount), null));
         remainderCount++;
